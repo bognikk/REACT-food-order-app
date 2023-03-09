@@ -33,21 +33,21 @@
 		outline: 2px solid webkit-focus-ring-color;
 		outline-offset: -2px;
 	}
-}
 
-.icon {
-	width: 1.35rem;
-	height: 1.35rem;
-	margin-right: 0.5rem;
-}
+	.icon {
+		width: 1.35rem;
+		height: 1.35rem;
+		margin-right: 0.5rem;
+	}
 
-.badge {
-	background-color: #0075a2;
-	color: #fff;
-	padding: 0.25rem 1rem;
-	border-radius: 25px;
-	margin-left: 1rem;
-	font-weight: bold;
+	.badge {
+		padding: 0.25rem 1rem;
+		margin-left: 1rem;
+		color: #fff;
+		border-radius: 25px;
+		font-weight: bold;
+		background-color: #0075a2;
+	}
 }
 
 .bump {
