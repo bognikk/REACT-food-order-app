@@ -1,0 +1,41 @@
+.button {
+	display: inline-block;
+	width: 100%;
+	padding: 0.75rem 3.5rem;
+	border: 2px solid #eaba6b;
+	border-radius: 30px;
+	color: #000;
+	font-weight: 700 !important;
+	text-decoration: none;
+	background-color: #eaba6b;
+	font: inherit;
+	cursor: pointer;
+
+	@media (min-width: 768px) {
+		width: auto;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: #eaba6b;
+		border-color: #eaba6b;
+		background-color: #0075a2;
+		outline-color: #eaba6b;
+	}
+
+	&:focus {
+		outline: 2px solid webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+
+	&:disabled,
+	&:focus:disabled,
+	&:hover:disabled,
+	&:active:disabled {
+		background: #ccc;
+		border-color: #ccc;
+		color: #666666;
+		cursor: not-allowed;
+	}
+}
