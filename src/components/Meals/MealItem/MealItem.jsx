@@ -1,6 +1,7 @@
 import classes from "./MealItem.module.scss";
+import MealItemForm from "./MealItemForm";
 
-const MealItem = ({ nameProp, descriptionProp, priceProp }) => {
+const MealItem = ({ nameProp, descriptionProp, priceProp, idProp }) => {
 	const price = `$${priceProp.toFixed(2)}`;
 	return (
 		<li className={classes.meal}>
@@ -9,7 +10,9 @@ const MealItem = ({ nameProp, descriptionProp, priceProp }) => {
 				<div className={classes.description}>{descriptionProp}</div>
 				<div className={classes.price}>{price}</div>
 			</div>
-			<div></div>
+			<div>
+				<MealItemForm id={idProp} />
+			</div>
 		</li>
 	);
 };
