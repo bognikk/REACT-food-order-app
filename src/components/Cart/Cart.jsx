@@ -7,6 +7,7 @@ const Cart = ({ onClose }) => {
 		<ul className={classes["cart-items"]}>
 			{[
 				{
+					key: "m1",
 					id: "m1",
 					name: "Sushi",
 					amount: 2,

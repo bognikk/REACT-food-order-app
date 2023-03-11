@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 
+import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals3.jpg";
 import classes from "./Header.module.scss";
-import HeaderCartButton from "./HeaderCartButton";
 
 const Header = ({ onShowCart }) => {
 	return (
