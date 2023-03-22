@@ -1,5 +1,6 @@
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
+import Spinner from "../UI/Spinner";
 
 import classes from "./AvailableMeals.module.scss";
 import { useEffect, useState } from "react";
@@ -33,6 +34,7 @@ import { useEffect, useState } from "react";
 
 const AvailableMeals = () => {
 	const [meals, setMeals] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchMeals = async () => {
@@ -53,10 +55,15 @@ const AvailableMeals = () => {
 			}
 
 			setMeals(loadedMeals);
+			setIsLoading(false);
 		};
 
 		fetchMeals();
 	}, []);
+
+	if (isLoading) {
+		return <Spinner />;
+	}
 
 	const mealsList = meals.map((meal) => (
 		<MealItem
@@ -67,6 +74,7 @@ const AvailableMeals = () => {
 			priceProp={meal.price}
 		/>
 	));
+
 	return (
 		<section className={classes.meals}>
 			<Card>
