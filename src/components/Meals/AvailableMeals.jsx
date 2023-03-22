@@ -5,42 +5,21 @@ import Spinner from "../UI/Spinner";
 import classes from "./AvailableMeals.module.scss";
 import { useEffect, useState } from "react";
 
-// const DUMMY_MEALS = [
-// 	{
-// 		id: "m1",
-// 		name: "Sushi",
-// 		description: "Finest fish and veggies",
-// 		price: 22.99,
-// 	},
-// 	{
-// 		id: "m2",
-// 		name: "Schnitzel",
-// 		description: "A german specialty!",
-// 		price: 16.5,
-// 	},
-// 	{
-// 		id: "m3",
-// 		name: "Barbecue Burger",
-// 		description: "American, raw, meaty",
-// 		price: 12.99,
-// 	},
-// 	{
-// 		id: "m4",
-// 		name: "Green Bowl",
-// 		description: "Healthy...and green...",
-// 		price: 18.99,
-// 	},
-// ];
-
 const AvailableMeals = () => {
 	const [meals, setMeals] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [httpError, setHttpError] = useState();
 
 	useEffect(() => {
 		const fetchMeals = async () => {
 			const response = await fetch(
 				"https://react-meals-6d8c9-default-rtdb.firebaseio.com/meals.json"
 			);
+
+			if (!response.ok) {
+				throw new Error("Something went wrong!");
+			}
+
 			const responseData = await response.json();
 
 			const loadedMeals = [];
@@ -58,11 +37,24 @@ const AvailableMeals = () => {
 			setIsLoading(false);
 		};
 
-		fetchMeals();
+		fetchMeals().catch((error) => {
+			setIsLoading(false);
+			setHttpError(error.message);
+		});
 	}, []);
 
 	if (isLoading) {
 		return <Spinner />;
+	}
+
+	if (httpError) {
+		return (
+			<section className={classes.mealsError}>
+				<Card>
+					<p>{httpError}</p>
+				</Card>
+			</section>
+		);
 	}
 
 	const mealsList = meals.map((meal) => (
