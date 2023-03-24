@@ -1,10 +1,12 @@
 .cart-items {
 	max-height: 20rem;
+	max-width: 100%;
 	margin: 0;
-	padding: 0;
+	padding: 1rem;
+	// margin: -1rem;
 	list-style: none;
 	overflow: auto;
-	margin-right: -16px;
+	// margin-right: -16px;
 
 	// &::-webkit-scrollbar {
 	// 	display: none;
@@ -25,7 +27,6 @@
 
 	button {
 		margin-left: 1rem;
-
 		padding: 0.5rem 1.5rem;
 		border: 2px solid #eaba6b;
 		border-radius: 30px;
